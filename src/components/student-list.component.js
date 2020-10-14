@@ -14,15 +14,19 @@ export default class StudentList extends Component {
   }
 
   componentDidMount() {
+    this.getData();
+  }
+
+  getData = () => {
     axios.get('http://localhost:4000/students/')
-      .then(res => {
-        this.setState({
-          students: res.data
-        });
-      })
-      .catch((error) => {
-        console.log(error);
-      })
+    .then(res => {
+      this.setState({
+        students: res.data
+      });
+    })
+    .catch((error) => {
+      console.log(error);
+    })
   }
 
   DataTable() {
